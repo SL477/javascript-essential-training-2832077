@@ -60,3 +60,29 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+/**
+ * Challenge: Add a new element
+ * - In JavaScript, create a new element to hold a navigation menu
+ * - Add an unordered list and a series of no less than five links to the list 
+ * - Use single words like “home”, “about”, etc for the list items and set the src attribute to # for simplicity
+ * - Add the new navigation element to the DOM directly after the header
+ * - Write basic CSS and add classes as necessary to create a horizontal layout for the menu. 
+ * - A tip: Use either display flex or display grid to create the horizontal menu.
+ */
+
+const nav = `
+<li><a href="#everyday">Everyday</a></li>
+<li><a href="#nav">Navbar</a></li>
+<li><a href="https://link477.com">Me</a></li>
+<li><a href="https://google.com">Google</a></li>
+<li><a href="https://bbc.co.uk">BBC</a></li>
+`;
+
+const body = document.querySelector("body");
+const navbar = document.createElement("nav");
+navbar.innerHTML = nav;
+navbar.setAttribute('style', 'display:flex;flex-direction:row;');
+navbar.setAttribute('id', 'nav');
+navbar.classList.add('navigation');
+body.insertBefore(navbar, document.querySelector('.maincontent'));
