@@ -9,3 +9,26 @@
  */
 
 
+const arr = [
+    'Coca-Cola',
+    'Glass',
+    'Paper',
+    'Screen',
+    'Speakers',
+    'Printer',
+    'TV',
+    'Remote'
+];
+
+let lst = arr.pop();
+arr.unshift(lst);
+console.log(arr);
+arr.sort();
+
+console.log(arr);
+
+let g = arr.findIndex(i => i == 'Glass');
+console.log(arr.indexOf('Glass'));
+console.log(g);
+arr.splice(g, 1);
+console.log(arr);
