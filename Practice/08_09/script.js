@@ -57,3 +57,21 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+function figCreator(item) {
+  let ret = `
+  <figure>
+    <img src=${item.image} alt="${item.name}"/>
+    <figcaption>${item.name}</figcaption>
+  </figure>`;
+  return ret;
+}
+
+function main(item) {
+  let ret = document.createElement("article");
+
+  ret.innerHTML = content + figCreator(item);
+  return ret;
+}
+
+document.querySelector("main").append(main(frogpack));
