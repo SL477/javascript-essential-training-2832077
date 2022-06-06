@@ -82,6 +82,32 @@ const backpackList = backpackObjectArray.map((backpack) => {
     lidToggle(event, button, newArg);
   });
 
+  // add the strap forms
+  let straps = backpackArticle.querySelectorAll(".backpack__strap");
+  straps.forEach(s => {
+    console.log(s);
+
+    let side = s.getAttribute("data-side");
+
+    let slform = document.createElement('form');
+    slform.innerHTML = `
+    <input type="number" name="len" value="${side == 'left' ? backpack.strapLength.left : backpack.strapLength.right}">
+    <input type="submit" value="Update">
+    `;
+    slform.addEventListener("submit", (e) => {
+      e.preventDefault();
+      //console.log(e.target);
+      const data = new FormData(e.target);
+      //console.log(data);
+      
+      let l = data.get('len');
+      console.log(l);
+      //backpack.strapLength[side] = l;
+      s.querySelector('span').innerText = l.toString();
+    });
+    s.append(slform);
+  });
+
   return backpackArticle;
 });
 
